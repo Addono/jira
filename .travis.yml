@@ -74,3 +74,8 @@ env:
   global:
     - secure: "pGQGM5YmHvOgaKihOyzb3k6bdqLQnZQ2OXO9QrfXlXwtop3zvZQi80Q+01l230x2psDWlwvqWTknAjAt1w463fYXPwpoSvKVCsLSSbjrf2l56nrDqnoir+n0CBy288+eIdaGEfzcxDiuULeKjlg08zrqjcjLjW0bDbBrlTXsb5U="
     - PIP_DISABLE_PIP_VERSION_CHECK=1
+    - CI_JIRA_URL="https://pycontribs.atlassian.net"
+    - CI_JIRA_ADMIN="ci-admin@ssbarnea.33mail.com"
+    - CI_JIRA_ADMIN_PASSWORD="QsXrRluN43SL7WbG2GklD52D"
+    - CI_JIRA_USER="ci-user@ssbarnea.33mail.com"
+    - CI_JIRA_USER_PASSWORD="4Kkgfdslu7dAlG6Sg72MDBC4"
