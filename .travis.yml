@@ -6,10 +6,10 @@ dist: xenial
 # See:
 #   - https://github.com/travis-ci/travis-ci/issues/1147
 #   - https://docs.travis-ci.com/user/pull-requests/#double-builds-on-pull-requests
-branches:
-  only:
-    - master
-    - /^\d+\.\d+(\.\d+)?(-\S*)?$/
+#branches:
+#  only:
+#    - master
+#    - /^\d+\.\d+(\.\d+)?(-\S*)?$/
 
 cache:
   bundler: true
