@@ -1,5 +1,7 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
+from typing import Optional
+
 from requests.auth import AuthBase
 
 """
@@ -3446,14 +3448,21 @@ class JIRA(object):
             logging.error(ioe)
         return None
 
-    def current_user(self, field="accountId"):
-        """Returns information about the current user, including but not limited
-        to their display name, e-mail, accountId.
+    def current_user(self, field: Optional[str] = None):
+        """Returns information about the current user.
 
+        :param field: The name of the field which should be retrieved for the current user.
+        :type field: Optional[str]
         :rtype: str
         """
-        if not hasattr(self, "_myself"):
+        # Set the default field based on
+        if field is None:
+            if self.deploymentType == "Cloud":
+                field = "accountId"
+            else:
+                field = "key"
 
+        if not hasattr(self, "_myself"):
             url = self._get_url("myself")
             r = self._session.get(url, headers=self._options["headers"])
 
@@ -3654,7 +3663,7 @@ class JIRA(object):
         template_key = None
 
         if assignee is None:
-            assignee = self.current_user("accountId")
+            assignee = self.current_user()
         if name is None:
             name = key
 
