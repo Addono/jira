@@ -30,7 +30,7 @@ stages:
 before_install:
   - pip install --upgrade tox tox-venv
   - rm -rf .tox
-  - docker run -d -p 2990:2990 --name jira addono/atlassian-sdk atlas-run-standalone --product jira
+  - docker run -dit -p 2990:2990 --name jira addono/atlassian-sdk atlas-run-standalone --product jira
   - until $(curl -u $CI_JIRA_ADMIN:$CI_JIRA_ADMIN_PASSWORD --output /dev/null --silent --head --fail $CI_JIRA_URL/rest/api/2/permissions); do sleep 5; done
 notifications:
   email:
