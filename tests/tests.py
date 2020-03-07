@@ -281,7 +281,7 @@ class JiraTestManager(object):
                     ):
                         break
                 except Exception as e:
-                    if "A project with that name already exists" not in e.text:
+                    if not hasattr(e, "text") or "A project with that name already exists" not in e.text:
                         raise e
             self.project_a_id = self.jira_admin.project(self.project_a).id
             self.jira_admin.create_project(self.project_b, self.project_b_name)
